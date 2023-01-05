@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  one_fastapi:
+    image: fastapi
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
+    ports:
+      - 8080:8080
+    volumes:
+      - ./fast/app:/code/app
