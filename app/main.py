@@ -1,15 +1,18 @@
 from fastapi import FastAPI
 from typing import Union
-
+from datetime import datetime
 
 app = FastAPI()
 
 
 @app.get("/user")
 def users():
-    return {"test": "이건 두번째!!"}
+    strart_time = datetime.now()
+    return {"test": f"현재 시각 : {strart_time} user API 호출되었습니다"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/items")
+def read_item():
+    strart_time = datetime.now()
+    return {"test": f"현재 시각 : {strart_time} items API 호출되었습니다"}
+
